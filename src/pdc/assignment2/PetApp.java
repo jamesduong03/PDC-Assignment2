@@ -4,6 +4,9 @@
  */
 package pdc.assignment2;
 
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+
 /**
  *
  * @author jamesduong
@@ -14,7 +17,15 @@ public class PetApp {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // TODO code application logic here
+        
+        JFrame frame = new JFrame("Pet Game");
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        JPanel Main = new JPanel();
+        frame.setSize(600, 600);
+        frame.setLocationRelativeTo(null);
+        frame.setVisible(true);
+        
+        
     }
     
 }
