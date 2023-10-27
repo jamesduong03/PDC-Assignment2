@@ -11,15 +11,15 @@ package pdc.assignment2;
 public class GameFrame {
     
     private startMenu menu = new startMenu();
+    private newPetMenu petMenu = new newPetMenu();
     
     public void startFrame() {
         Controller controller = new Controller(menu, this);
         menu.display();
     }
-
-    public startMenu getstartMenu() {
-        return this.menu;
+    
+    public void startNewPetFrame() {
+        Controller controller = new Controller(petMenu, this);
+        petMenu.display();
     }
-    
-    
 }
