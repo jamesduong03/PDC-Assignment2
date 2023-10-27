@@ -27,8 +27,9 @@ public class Controller implements ActionListener{
         startmenu.quitAction(this);
     }
     
-        public Controller(newPetMenu petMenu, GameFrame gameFrame) {
+        public Controller(newPetMenu petMenu, newPetActions petAction, GameFrame gameFrame) {
         this.petMenu = petMenu;
+        this.petAction = petAction;
         this.gameFrame = gameFrame;
         
         petMenu.enterAction(this);
@@ -53,11 +54,12 @@ public class Controller implements ActionListener{
                 break;
                 
             case "Enter":
-//                if(!petAction.checkPlayerName() && !petAction.checkPetName()) {
+                if(!petAction.checkPlayerName() && !petAction.checkPetName()) {
+                    System.exit(0);
 //                    petAction.newPlayer();
 //                    petAction.newPet();
 //                    petMenu.dispose();
-//                }
+                }
                 break;
         }
     }
