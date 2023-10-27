@@ -18,12 +18,15 @@ public class PetApp {
      */
     public static void main(String[] args) {
         
-        JFrame frame = new JFrame("Pet Game");
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        JPanel Main = new JPanel();
-        frame.setSize(600, 600);
-        frame.setLocationRelativeTo(null);
-        frame.setVisible(true);
+        GameFrame newGame = new GameFrame();
+        newGame.startFrame();
+        
+//        JFrame frame = new JFrame("Pet Game");
+//        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+//        JPanel Main = new JPanel();
+//        frame.setSize(600, 600);
+//        frame.setLocationRelativeTo(null);
+//        frame.setVisible(true);
         
         
     }
