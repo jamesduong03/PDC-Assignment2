@@ -13,6 +13,7 @@ public class GameFrame {
     private startMenu menu = new startMenu();
     private newPetMenu petMenu = new newPetMenu();
     private newPetActions petAction = new newPetActions(petMenu);
+    private mainMenu mainMenu = new mainMenu();
     
     public void startFrame() {
         Controller controller = new Controller(menu, this);
@@ -22,5 +23,9 @@ public class GameFrame {
     public void startNewPetFrame() {
         Controller controller = new Controller(petMenu, petAction, this);
         petMenu.display();
+    }
+    
+    public void startMainMenu() {
+        mainMenu.display();
     }
 }

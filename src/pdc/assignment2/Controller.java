@@ -55,10 +55,8 @@ public class Controller implements ActionListener{
                 
             case "Enter":
                 if(!petAction.checkPlayerName() && !petAction.checkPetName()) {
-                    System.exit(0);
-//                    petAction.newPlayer();
-//                    petAction.newPet();
-//                    petMenu.dispose();
+                    petMenu.dispose();
+                    gameFrame.startMainMenu();
                 }
                 break;
         }
