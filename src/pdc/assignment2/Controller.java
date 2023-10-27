@@ -15,6 +15,7 @@ public class Controller implements ActionListener{
     
     private startMenu startmenu;
     private newPetMenu petMenu;
+    private newPetActions petAction;
     private GameFrame gameFrame = new GameFrame();
     
     public Controller(startMenu startmenu, GameFrame gameFrame) {
@@ -49,6 +50,14 @@ public class Controller implements ActionListener{
                 
             case "Quit":
                 System.exit(0);
+                break;
+                
+            case "Enter":
+//                if(!petAction.checkPlayerName() && !petAction.checkPetName()) {
+//                    petAction.newPlayer();
+//                    petAction.newPet();
+//                    petMenu.dispose();
+//                }
                 break;
         }
     }
