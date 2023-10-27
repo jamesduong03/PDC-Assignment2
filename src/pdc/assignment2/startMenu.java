@@ -26,10 +26,8 @@ import javax.swing.JPanel;
  */
 public class startMenu {
     
-    private int screenWidth = 500;
-    private int screenHeight = 500;
-    private int frameWidth = screenWidth;
-    private int frameHeight = screenHeight;
+    private int Width = 500;
+    private int Height = 500;
     
     private JFrame startMenuFrame;
     private JPanel startMenuPanel;
@@ -42,7 +40,7 @@ public class startMenu {
     public startMenu() {
         startMenuFrame = new JFrame("Pet Game");
         startMenuFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        startMenuFrame.setSize(frameWidth, frameHeight);
+        startMenuFrame.setSize(Width, Height);
         startMenuFrame.setLocationRelativeTo(null);
     }
     
