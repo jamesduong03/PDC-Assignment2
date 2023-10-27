@@ -4,11 +4,20 @@
  */
 package pdc.assignment2;
 
+import java.awt.Component;
+import java.awt.Font;
+import java.awt.Graphics;
+import java.awt.GridBagConstraints;
+import java.awt.GridBagLayout;
+import java.awt.Image;
+import java.awt.Insets;
 import java.awt.event.ActionListener;
 import javax.swing.Box;
 import javax.swing.BoxLayout;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 /**
@@ -17,14 +26,15 @@ import javax.swing.JPanel;
  */
 public class startMenu {
     
-    private int screenWidth = 600;
-    private int screenHeight = 600;
+    private int screenWidth = 500;
+    private int screenHeight = 500;
     private int frameWidth = screenWidth;
     private int frameHeight = screenHeight;
     
     private JFrame startMenuFrame;
     private JPanel startMenuPanel;
     
+    private JLabel title = new JLabel("PET GAME!");
     private JButton newGame = new JButton("New Game");
     private JButton savedGame = new JButton("Load Saved Game");
     private JButton quit = new JButton("Quit");
@@ -40,19 +50,24 @@ public class startMenu {
         
         startMenuPanel = new JPanel();
         
-        startMenuPanel.setLayout(new BoxLayout(startMenuPanel, BoxLayout.Y_AXIS));
-        
-        startMenuPanel.add(Box.createHorizontalGlue());
-        startMenuPanel.add(Box.createHorizontalStrut(frameWidth / 4));
-        startMenuPanel.add(Box.createVerticalGlue());
-        startMenuPanel.add(newGame);
-        startMenuPanel.add(Box.createVerticalStrut(10));
-        startMenuPanel.add(savedGame);
-        startMenuPanel.add(Box.createVerticalStrut(10));
-        startMenuPanel.add(quit);
-        startMenuPanel.add(Box.createVerticalGlue());
-        startMenuPanel.add(Box.createHorizontalStrut(frameWidth / 4));
-        startMenuPanel.add(Box.createHorizontalGlue());
+        startMenuPanel.setLayout(new GridBagLayout());
+        GridBagConstraints gbc = new GridBagConstraints();
+
+        gbc.gridx = 0;
+        gbc.gridy = 0;
+        gbc.anchor = GridBagConstraints.CENTER;
+        gbc.insets = new Insets(30, 10, 10, 10);
+        startMenuPanel.add(title, gbc);
+        title.setFont(new Font("Ariel", Font.PLAIN, 30));
+
+        gbc.gridy = 1;
+        startMenuPanel.add(newGame, gbc);
+
+        gbc.gridy = 2;
+        startMenuPanel.add(savedGame, gbc);
+
+        gbc.gridy = 3;
+        startMenuPanel.add(quit, gbc);
     }
     
     public void display() {
