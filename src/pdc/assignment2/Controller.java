@@ -14,6 +14,7 @@ import java.awt.event.ActionListener;
 public class Controller implements ActionListener{
     
     private startMenu startmenu;
+    private newPetMenu petMenu;
     private GameFrame gameFrame = new GameFrame();
     
     public Controller(startMenu startmenu, GameFrame gameFrame) {
@@ -25,6 +26,13 @@ public class Controller implements ActionListener{
         startmenu.quitAction(this);
     }
     
+        public Controller(newPetMenu petMenu, GameFrame gameFrame) {
+        this.petMenu = petMenu;
+        this.gameFrame = gameFrame;
+        
+        petMenu.enterAction(this);
+    }
+    
     @Override
     public void actionPerformed(ActionEvent e) {
         String input = e.getActionCommand();
@@ -32,6 +40,7 @@ public class Controller implements ActionListener{
         switch(input) {
             case "New Game":
                 startmenu.dispose();
+                gameFrame.startNewPetFrame();
                 break;
                 
             case "Load Saved Game":
