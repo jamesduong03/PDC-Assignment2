@@ -26,6 +26,10 @@ public class GameFrame {
     }
     
     public void startMainMenu() {
+        Player player = new Player(petMenu.getName());
+        Pet pet = new Pet(petMenu.getPetName(), petMenu.getPetSelected());
+        mainActions actions = new mainActions(mainMenu.getStats(), player, pet);
+        gameController gamecontroller = new gameController(mainMenu, actions, this);
         mainMenu.display();
     }
 }

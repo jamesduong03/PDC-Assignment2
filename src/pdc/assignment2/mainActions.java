@@ -23,40 +23,44 @@ public class mainActions {
         this.stats = stats;
         this.player = player;
         this.pet = pet;
-        
-        this.hunger = 0;
-        this.hydration = 0;
-        this.happiness = 0;
-        this.energy = 0;
     }
     
-    public void setStats() {
-        stats.getHunger().setValue(this.hunger);
-        stats.getHydration().setValue(this.hydration);
-        stats.getHappiness().setValue(this.happiness);
-        stats.getEnergy().setValue(this.energy);
+    public void setStats() {  
+        stats.getHunger().setValue(hunger);
+        stats.getHydration().setValue(hydration);
+        stats.getHappiness().setValue(happiness);
+        stats.getEnergy().setValue(energy);
     }
     
     public void eat() {
-        this.hunger += 3;
+        hunger += 2;
+        hydration += 0;
+        this.energy += 0;
+        happiness -= 2;
         setStats();
     }
     
     public void drink() {
-        this.hydration += 4;
+        hydration += 4;
+        hunger += 0;
+        energy += 0;
+        happiness -= 2;
         setStats();
     }
     
     public void play() {
-        this.hunger -= 3;
-        this.hydration -= 3;
-        this.energy -= 4;
-        this.happiness += 4;
+        hunger -= 3;
+        hydration -= 3;
+        energy -= 4;
+        happiness += 4;
         setStats();
     }
     
     public void sleep() {
-        this.energy += 8;
+        energy += 5;
+        hunger -= 2;
+        hydration -= 2;
+        happiness -= 2;
         setStats();
     }
 }

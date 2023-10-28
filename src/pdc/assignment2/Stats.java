@@ -12,10 +12,10 @@ import javax.swing.JProgressBar;
  */
 public class Stats {
     
-    private JProgressBar hunger = new JProgressBar(0, 20);
-    private JProgressBar hydration = new JProgressBar(0, 20);
-    private JProgressBar happiness = new JProgressBar(0, 20);
-    private JProgressBar energy = new JProgressBar(0, 20);
+    private JProgressBar hunger = new JProgressBar(0, 10);
+    private JProgressBar hydration = new JProgressBar(0, 10);
+    private JProgressBar happiness = new JProgressBar(0, 10);
+    private JProgressBar energy = new JProgressBar(0, 10);
     
     private int hungerV;
     private int hydrationV;
@@ -23,10 +23,10 @@ public class Stats {
     private int energyV;
     
     public Stats() {
-        this.hungerV = 8;
-        this.hydrationV = 8;
-        this.happinessV = 6;
-        this.energyV = 6;
+        this.hungerV = 5;
+        this.hydrationV = 5;
+        this.happinessV = 5;
+        this.energyV = 5;
         
         this.hunger.setValue(hungerV);
         this.hydration.setValue(hydrationV);

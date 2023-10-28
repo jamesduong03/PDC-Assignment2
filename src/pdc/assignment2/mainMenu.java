@@ -81,6 +81,10 @@ public class mainMenu {
         mainFrame.dispose();
     }
     
+    public Stats getStats() {
+        return this.stats;
+    }
+    
     public void eatAction(ActionListener action) {
         eat.addActionListener(action);
     }

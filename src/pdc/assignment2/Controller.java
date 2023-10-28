@@ -16,6 +16,8 @@ public class Controller implements ActionListener{
     private startMenu startmenu;
     private newPetMenu petMenu;
     private newPetActions petAction;
+    private mainMenu mainmenu;
+    private mainActions actions;
     private GameFrame gameFrame = new GameFrame();
     
     public Controller(startMenu startmenu, GameFrame gameFrame) {
@@ -27,11 +29,11 @@ public class Controller implements ActionListener{
         startmenu.quitAction(this);
     }
     
-        public Controller(newPetMenu petMenu, newPetActions petAction, GameFrame gameFrame) {
+    public Controller(newPetMenu petMenu, newPetActions petAction, GameFrame gameFrame) {
         this.petMenu = petMenu;
         this.petAction = petAction;
         this.gameFrame = gameFrame;
-        
+
         petMenu.enterAction(this);
     }
     
