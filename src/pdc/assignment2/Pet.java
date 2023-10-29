@@ -33,6 +33,4 @@ public class Pet {
     public void setAnimal(String animal) {
         this.animal = animal;
     }
-    
-    
 }
