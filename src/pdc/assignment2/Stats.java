@@ -28,10 +28,10 @@ public class Stats {
         this.happinessV = 50;
         this.energyV = 50;
         
-//        this.hunger.setValue(hungerV);
-//        this.hydration.setValue(hydrationV);
-//        this.happiness.setValue(happinessV);
-//        this.energy.setValue(energyV);
+        this.hunger.setValue(hungerV);
+        this.hydration.setValue(hydrationV);
+        this.happiness.setValue(happinessV);
+        this.energy.setValue(energyV);
         
         hunger.setStringPainted(true);
         hydration.setStringPainted(true);
