@@ -14,13 +14,13 @@ import javax.swing.JOptionPane;
  */
 public class Controller implements ActionListener{
     
+    // Instance variables
     private startMenu startmenu;
     private newPetMenu petMenu;
     private newPetActions petAction;
-    private mainMenu mainmenu;
-    private mainActions actions;
     private GameFrame gameFrame = new GameFrame();
     
+    // Constructor 
     public Controller(startMenu startmenu, GameFrame gameFrame) {
         this.startmenu = startmenu;
         this.gameFrame = gameFrame;
@@ -30,6 +30,7 @@ public class Controller implements ActionListener{
         startmenu.quitAction(this);
     }
     
+    // Constructor 
     public Controller(newPetMenu petMenu, newPetActions petAction, GameFrame gameFrame) {
         this.petMenu = petMenu;
         this.petAction = petAction;
@@ -39,6 +40,7 @@ public class Controller implements ActionListener{
         petMenu.loadAction(this);
     }
     
+    // Method to get Player input from Start menu and New Pet Menu
     @Override
     public void actionPerformed(ActionEvent e) {
         String input = e.getActionCommand();
@@ -58,7 +60,8 @@ public class Controller implements ActionListener{
                 System.exit(0);
                 break;
                 
-            case "Enter":             
+            case "Enter":
+                // Check if the player name and pet name are not null
                 if(!petAction.checkPlayerName() && !petAction.checkPetName()) {
                     if (petAction.checkPlayerDB()) {
                         JOptionPane.showMessageDialog(null, "Name already exist. Please choose another name.");
@@ -71,6 +74,7 @@ public class Controller implements ActionListener{
                 break;
                 
             case "Load Game":
+                // Check if the player exists in the database
                 if (petAction.checkPlayerDB() == false) {
                         JOptionPane.showMessageDialog(null, "Name does not exist. Please try another name.");
                 } else {

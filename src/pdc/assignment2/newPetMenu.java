@@ -21,6 +21,7 @@ import javax.swing.JTextField;
  */
 public class newPetMenu {
     
+    // Variables
     private int Width = 500;
     private int Height = 500;
     
@@ -40,6 +41,7 @@ public class newPetMenu {
     private JButton enter = new JButton("Enter");
     private JButton load = new JButton("Load Game");
     
+    // Constructor
     public newPetMenu() {
         
         newPetFrame = new JFrame("Pet Game");
@@ -48,6 +50,7 @@ public class newPetMenu {
         newPetFrame.setLocationRelativeTo(null);
     }
     
+    // Add components for creating a new pet
     public void menuOptions() {
         
         newPetPanel.add(nametext);
@@ -64,12 +67,14 @@ public class newPetMenu {
         newPetPanel.add(enter);  
     }
     
+    // Add components for loading a saved game
     public void saveMenu() {
         newPetPanel.add(nametext);
         newPetPanel.add(nameInput);
         newPetPanel.add(load); 
     }
     
+    // Add components and configure the layout for the new pet menu
     public void menu() {
         newPetPanel.setLayout(new GridBagLayout());
         GridBagConstraints gbc = new GridBagConstraints();
@@ -105,22 +110,26 @@ public class newPetMenu {
         newPetPanel.add(enter, gbc);  
     }
     
+    // Display the new pet menu
     public void display() {
         menu();
         newPetFrame.add(newPetPanel);
         newPetFrame.setVisible(true);
     }
     
+    // Display the menu for saved game
     public void displaySave() {
         saveMenu();
         newPetFrame.add(newPetPanel);
         newPetFrame.setVisible(true);
     }
     
+    // Close and dispose of the new pet menu
     public void dispose() {
         newPetFrame.dispose();
     }
     
+    // Set ActionListener for buttons
     public void enterAction(ActionListener action) {
         enter.addActionListener(action);
     }
@@ -129,6 +138,7 @@ public class newPetMenu {
         load.addActionListener(action);
     }
     
+    // Get the selected pet type (Dog or Cat)
     public String getPetSelected() {
         String petSelected = "";
         
@@ -139,10 +149,12 @@ public class newPetMenu {
         return petSelected;
     }
     
+    // Get the entered player name
     public String getName() {
         return this.nameInput.getText();
     }
     
+    // Get the entered pet name
     public String getPetName() {
         return this.petNameInput.getText();
     }

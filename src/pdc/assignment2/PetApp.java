@@ -4,9 +4,6 @@
  */
 package pdc.assignment2;
 
-import javax.swing.JFrame;
-import javax.swing.JPanel;
-
 /**
  *
  * @author jamesduong
