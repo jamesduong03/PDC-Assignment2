@@ -24,21 +24,6 @@ public class Database {
 
     public Database() {
         establishConnection();
-        initializeStatement();
-    }
-    
-    public void initializeStatement() {
-        try {
-            if (conn != null) {
-                statement = conn.createStatement();
-            } else {
-                System.err.println("Connection is null. Statement initialization failed.");
-                // Handle the error accordingly
-            }
-        } catch (SQLException ex) {
-            System.err.println("SQLException3: " + ex.getMessage());
-            // Handle the exception (e.g., throw it or exit gracefully)
-        }
     }
     
     public Connection getConnection() {
@@ -61,16 +46,6 @@ public class Database {
             System.err.println("SQLException: " + ex.getMessage());
             System.err.println(ex.getNextException());
         }
-        
-//        try {
-//            this.statement = conn.createStatement();
-//            this.statement.addBatch("CREATE TABLE SAVEDGAMES(PLAYER_NAME VARCHAR(20), PET_NAME VARCHAR(20), PET_ANIMAL VARCHAR(10),"
-//                    + "HUNGER INT, HYDRATION INT, HAPPINESS INT, ENERGY INT)");
-//            this.statement.executeBatch();
-//        } catch(SQLException ex) {
-//            System.err.println("SQLException1: " + ex.getMessage());
-//            System.err.println(ex.getNextException());
-//        }
     }
     
     public void establishConnection() {
