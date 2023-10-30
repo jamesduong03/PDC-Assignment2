@@ -24,6 +24,19 @@ public class Database {
 
     public Database() {
         establishConnection();
+        initializeStatement();
+    }
+    
+    public void initializeStatement() {
+        try {
+            if (conn != null) {
+                statement = conn.createStatement();
+            } else {
+                System.err.println("Connection is null. Statement initialization failed.");
+            }
+        } catch (SQLException ex) {
+            System.err.println("SQLException13: " + ex.getMessage());	
+        }
     }
     
     public Connection getConnection() {
@@ -79,6 +92,22 @@ public class Database {
     
     public boolean findPlayer(String name) {
         boolean found = false;
+        
+//        try {
+//            if (statement != null) {
+//                ResultSet rs = statement.executeQuery("SELECT PLAYER_NAME FROM SAVEDGAMES WHERE PLAYER_NAME = '" + name + "'");
+//                if (rs.next()) {
+//                    found = true;
+//                } else {
+//                    System.out.println("Cannot find Player");
+//                }
+//            } else {
+//                System.err.println("Statement is null. Cannot execute query.");
+//            }
+//        } catch (SQLException ex) {
+//            System.err.println("SQLException6: " + ex.getMessage());
+//        }
+//        return found;
         
         try{
             ResultSet rs = this.statement.executeQuery("SELECT PLAYER_NAME FROM SAVEDGAMES WHERE PLAYER_NAME = '" + name + "'");
