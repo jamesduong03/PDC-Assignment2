@@ -15,7 +15,7 @@ import java.sql.ResultSet;
  * @author jamesduong
  */
 public class Database {
-    
+
     private static final String USER_NAME = "petgame";
     private static final String PASSWORD = "petgame123";
     private static final String URL = "jdbc:derby://localhost:1527/PetGameDB;create=true";
@@ -26,7 +26,7 @@ public class Database {
         establishConnection();
         initializeStatement();
     }
-    
+
     public void initializeStatement() {
         try {
             if (conn != null) {
@@ -35,10 +35,11 @@ public class Database {
                 System.err.println("Connection is null. Statement initialization failed.");
             }
         } catch (SQLException ex) {
-            System.err.println("SQLException13: " + ex.getMessage());	
+
+            System.err.println("SQLException13: " + ex.getMessage());
         }
     }
-    
+
     public Connection getConnection() {
         return this.conn;
     }
@@ -50,7 +51,7 @@ public class Database {
 
             if (!rs.next()) {
                 this.statement.addBatch("CREATE TABLE SAVEDGAMES(PLAYER_NAME VARCHAR(20), PET_NAME VARCHAR(20), PET_ANIMAL VARCHAR(10),"
-                    + "HUNGER INT, HYDRATION INT, HAPPINESS INT, ENERGY INT)");
+                        + "HUNGER INT, HYDRATION INT, HAPPINESS INT, ENERGY INT)");
                 this.statement.executeBatch();
             } else {
                 System.out.println("SAVEDGAMES table already exists.");
@@ -60,7 +61,7 @@ public class Database {
             System.err.println(ex.getNextException());
         }
     }
-    
+
     public void establishConnection() {
         if (conn == null) {
             try {
@@ -71,28 +72,28 @@ public class Database {
             }
         }
     }
-    
+
     public void closeConnection() {
-        if(conn != null) {
-            try{
+        if (conn != null) {
+            try {
                 conn.close();
-            } catch(SQLException ex) {
+            } catch (SQLException ex) {
                 System.err.println("SQLException3: " + ex.getMessage());
             }
         }
     }
-    
-    public void newPlayer(String pname, String name, String animal) {     
-        try{
+
+    public void newPlayer(String pname, String name, String animal) {
+        try {
             this.statement.executeUpdate("INSERT INTO SAVEDGAMES (PLAYER_NAME, PET_NAME, PET_ANIMAL) VALUES ('" + pname + "', '" + name + "', '" + animal + "')");
         } catch (SQLException ex) {
             System.err.println("SQLException4: " + ex.getMessage());
         }
     }
-    
+
     public boolean findPlayer(String name) {
         boolean found = false;
-        
+      
 //        try {
 //            if (statement != null) {
 //                ResultSet rs = statement.executeQuery("SELECT PLAYER_NAME FROM SAVEDGAMES WHERE PLAYER_NAME = '" + name + "'");
@@ -107,27 +108,26 @@ public class Database {
 //        } catch (SQLException ex) {
 //            System.err.println("SQLException6: " + ex.getMessage());
 //        }
-//        return found;
-        
+//        return found;     
         try{
             ResultSet rs = this.statement.executeQuery("SELECT PLAYER_NAME FROM SAVEDGAMES WHERE PLAYER_NAME = '" + name + "'");
-            if(rs.next()){
+            if (rs.next()) {
                 found = true;
             } else {
                 System.out.println("Cannot find Player");
             }
-        }catch(SQLException ex) {
+        } catch (SQLException ex) {
             System.err.println("SQLException6: " + ex.getMessage());
         }
         return found;
     }
-    
+
     public boolean findPet(String name) {
         boolean found = false;
 
         try {
             ResultSet rs = this.statement.executeQuery("SELECT PET_NAME FROM SAVEDGAMES WHERE PET_NAME = '" + name + "'");
-            if(rs.next()) {
+            if (rs.next()) {
                 found = true;
             } else {
                 System.out.println("Cannot find pet");
@@ -137,22 +137,22 @@ public class Database {
         }
         return found;
     }
-    
-    public void saveGame(String name, String petname, String animal,  int hunger, int hydration, int happiness, int energy) {
-        try{
+
+    public void saveGame(String name, String petname, String animal, int hunger, int hydration, int happiness, int energy) {
+        try {
             this.statement.executeUpdate("UPDATE SAVEDGAMES SET HUNGER = " + hunger + ", HYDRATION = " + hydration
-            + ", HAPPINESS = " + happiness + ", ENERGY = " + energy 
-            + " WHERE PLAYER_NAME = '" + name + "' AND PET_NAME = '" + petname + "' AND PET_ANIMAL = '" + animal + "'");
-        }catch(SQLException ex) {
+                    + ", HAPPINESS = " + happiness + ", ENERGY = " + energy
+                    + " WHERE PLAYER_NAME = '" + name + "' AND PET_NAME = '" + petname + "' AND PET_ANIMAL = '" + animal + "'");
+        } catch (SQLException ex) {
             System.err.println("SQLException8: " + ex.getMessage());
         }
     }
-    
+
     public int getHunger(String name, String petname) {
         int hunger = 0;
-        try{
+        try {
             ResultSet rs = this.statement.executeQuery("SELECT HUNGER FROM SAVEDGAMES WHERE PLAYER_NAME = '" + name + "' AND PET_NAME = '" + petname + "'");
-            if(rs.next()) {
+            if (rs.next()) {
                 hunger = rs.getInt(1);
             }
         } catch (SQLException ex) {
@@ -160,7 +160,7 @@ public class Database {
         }
         return hunger;
     }
-    
+
     public int getHydration(String name, String petname) {
         int hydration = 0;
         try {
@@ -173,7 +173,7 @@ public class Database {
         }
         return hydration;
     }
-    
+
     public int getHappiness(String name, String petname) {
         int happiness = 0;
         try {
@@ -186,7 +186,7 @@ public class Database {
         }
         return happiness;
     }
-    
+
     public int getEnergy(String name, String petname) {
         int energy = 0;
         try {

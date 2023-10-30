@@ -1,0 +1,31 @@
+Sat Oct 28 16:01:48 NZDT 2023 : Apache Derby Network Server - 10.14.2.0 - (1828579) started and ready to accept connections on port 1527
+----------------------------------------------------------------
+Sat Oct 28 16:01:48 NZDT 2023:
+Booting Derby version The Apache Software Foundation - Apache Derby - 10.14.2.0 - (1828579): instance a816c00e-018b-743b-0809-000026d9b7de 
+on database directory /Users/jamesduong/NetBeansProjects/PDC-Assignment2/PetGameDB with class loader jdk.internal.loader.ClassLoaders$AppClassLoader@4b85612c 
+Loaded from file:/Users/jamesduong/db-derby-10.14.2.0-bin/lib/derby.jar
+java.vendor=Oracle Corporation
+java.runtime.version=11.0.18+9-LTS-195
+user.dir=/Users/jamesduong/db-derby-10.14.2.0-bin
+os.name=Mac OS X
+os.arch=x86_64
+os.version=12.6.5
+derby.system.home=/Users/jamesduong/NetBeansProjects/PDC-Assignment2
+Database Class Loader started - derby.database.classpath=''
+----------------------------------------------------------------
+Sat Oct 28 16:01:49 NZDT 2023:
+Shutting down instance a816c00e-018b-743b-0809-000026d9b7de on database directory /Users/jamesduong/NetBeansProjects/PDC-Assignment2/PetGameDB with class loader jdk.internal.loader.ClassLoaders$AppClassLoader@4b85612c 
+Sat Oct 28 16:01:49 NZDT 2023 Thread[DRDAConnThread_3,5,main] (DATABASE = PetGameDB), (DRDAID = {2}), Database 'PetGameDB' shutdown.
+----------------------------------------------------------------
+Sat Oct 28 16:02:25 NZDT 2023:
+Booting Derby version The Apache Software Foundation - Apache Derby - 10.14.2.0 - (1828579): instance 6ede40af-018b-743b-0809-000026d9b7de 
+on database directory /Users/jamesduong/NetBeansProjects/PDC-Assignment2/PetGameDB with class loader jdk.internal.loader.ClassLoaders$AppClassLoader@4b85612c 
+Loaded from file:/Users/jamesduong/db-derby-10.14.2.0-bin/lib/derby.jar
+java.vendor=Oracle Corporation
+java.runtime.version=11.0.18+9-LTS-195
+user.dir=/Users/jamesduong/db-derby-10.14.2.0-bin
+os.name=Mac OS X
+os.arch=x86_64
+os.version=12.6.5
+derby.system.home=/Users/jamesduong/NetBeansProjects/PDC-Assignment2
+Database Class Loader started - derby.database.classpath=''
