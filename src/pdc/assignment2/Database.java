@@ -24,6 +24,19 @@ public class Database {
 
     public Database() {
         establishConnection();
+        initializeStatement();
+    }
+    
+    public void initializeStatement() {
+        try {
+            if (conn != null) {
+                statement = conn.createStatement();
+            } else {
+                System.err.println("Connection is null. Statement initialization failed.");
+            }
+        } catch (SQLException ex) {
+            System.err.println("SQLException13: " + ex.getMessage());
+        }
     }
     
     public Connection getConnection() {
