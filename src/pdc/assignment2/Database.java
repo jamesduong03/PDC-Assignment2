@@ -35,6 +35,7 @@ public class Database {
                 System.err.println("Connection is null. Statement initialization failed.");
             }
         } catch (SQLException ex) {
+
             System.err.println("SQLException13: " + ex.getMessage());
         }
     }
@@ -92,7 +93,7 @@ public class Database {
 
     public boolean findPlayer(String name) {
         boolean found = false;
-
+      
 //        try {
 //            if (statement != null) {
 //                ResultSet rs = statement.executeQuery("SELECT PLAYER_NAME FROM SAVEDGAMES WHERE PLAYER_NAME = '" + name + "'");
@@ -107,8 +108,8 @@ public class Database {
 //        } catch (SQLException ex) {
 //            System.err.println("SQLException6: " + ex.getMessage());
 //        }
-//        return found;
-        try {
+//        return found;     
+        try{
             ResultSet rs = this.statement.executeQuery("SELECT PLAYER_NAME FROM SAVEDGAMES WHERE PLAYER_NAME = '" + name + "'");
             if (rs.next()) {
                 found = true;
