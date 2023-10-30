@@ -18,8 +18,11 @@ public class PetApp {
      */
     public static void main(String[] args) {
         
+        Database table = new Database();
+        table.createPetGameTable();
         GameFrame newGame = new GameFrame();
         newGame.startFrame();
+        table.closeConnection();
     }
     
 }

@@ -25,11 +25,25 @@ public class GameFrame {
         petMenu.display();
     }
     
+    public void startSaveFrame() {
+        Controller controller = new Controller(petMenu, petAction, this);
+        petMenu.displaySave();
+    }
+    
     public void startMainMenu() {
         Player player = new Player(petMenu.getName());
         Pet pet = new Pet(petMenu.getPetName(), petMenu.getPetSelected());
         mainActions actions = new mainActions(mainMenu.getStats(), player, pet);
+        actions.getSavedGame();
         gameController gamecontroller = new gameController(mainMenu, actions, this);
         mainMenu.display();
+    }
+    
+    public newPetMenu getNewPetMenu() {
+        return this.petMenu;
+    }
+    
+    public newPetActions getPetActions() {
+        return this.petAction;
     }
 }

@@ -31,7 +31,7 @@ public class mainMenu {
     private JButton drink = new JButton("Drink");
     private JButton play = new JButton("Play");
     private JButton sleep = new JButton("Sleep");
-    private JButton quit = new JButton("Quit");
+    private JButton quit = new JButton("Quit and Save");
     
     private JLabel hunger = new JLabel("Hunger: ");
     private JLabel hydration = new JLabel("Hydration: ");
