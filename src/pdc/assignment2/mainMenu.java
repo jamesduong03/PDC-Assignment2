@@ -5,10 +5,8 @@
 package pdc.assignment2;
 
 import java.awt.BorderLayout;
-import java.awt.FlowLayout;
 import java.awt.GridLayout;
 import java.awt.event.ActionListener;
-import javax.swing.Box;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -20,6 +18,7 @@ import javax.swing.JPanel;
  */
 public class mainMenu {
     
+    // Variables
     private int Width = 500;
     private int Height = 500;
     private Stats stats = new Stats();
@@ -38,12 +37,14 @@ public class mainMenu {
     private JLabel happiness = new JLabel("Happiness: ");
     private JLabel energy = new JLabel("Energy: ");
     
+    // Constructor
     public void mainMenu() {
         mainFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         mainFrame.setSize(Width, Height);
         mainFrame.setLocationRelativeTo(null);
     }
     
+    // Add the pet's statistics to the interface
     public void addPetStats() {
         Stats = new JPanel(new GridLayout(2, 2));
         
@@ -58,6 +59,7 @@ public class mainMenu {
         mainFrame.add(Stats, BorderLayout.NORTH);
     }
     
+    // Add action buttons to the interface
     public void addButtons() {
         buttons = new JPanel();
 
@@ -68,6 +70,7 @@ public class mainMenu {
         buttons.add(quit);
     }
     
+    // Display the main menu interface
     public void display() {
         addButtons();
         addPetStats(); 
@@ -77,14 +80,18 @@ public class mainMenu {
         mainFrame.setLocationRelativeTo(null);
     }
     
+    // Close and dispose of the main menu
+
     public void dispose() {
         mainFrame.dispose();
     }
     
+    // Getter for the Stats object
     public Stats getStats() {
         return this.stats;
     }
     
+    // Set ActionListener for the buttons
     public void eatAction(ActionListener action) {
         eat.addActionListener(action);
     }

@@ -10,22 +10,26 @@ package pdc.assignment2;
  */
 public class mainActions {
     
+    // Instance variables
     private Stats stats;
     private Player player;
     private Pet pet;
     private Database db = new Database();
     
+    // Variables
     private int hunger;
     private int hydration;
     private int happiness;
     private int energy;
     
+    // Constructor
     public mainActions(Stats stats, Player player, Pet pet) {
         this.stats = stats;
         this.player = player;
         this.pet = pet;
     }
     
+    // Load saved game data from the database
     public void getSavedGame() {
         if(db.findPlayer(this.player.getName())) {
             hunger = db.getHunger(player.getName(), pet.getName());
@@ -36,6 +40,7 @@ public class mainActions {
         setStats();
     }
     
+    // Update the game statistics based on the current values
     public void setStats() {  
         stats.getHunger().setValue(hunger);
         stats.getHydration().setValue(hydration);
@@ -43,6 +48,7 @@ public class mainActions {
         stats.getEnergy().setValue(energy);
     }
     
+    // Eat method
     public void eat() {
         hunger += 20;
         hydration += 0;
@@ -51,6 +57,7 @@ public class mainActions {
         setStats();
     }
     
+    // drink method
     public void drink() {
         hydration += 40;
         hunger += 0;
@@ -59,6 +66,7 @@ public class mainActions {
         setStats();
     }
     
+    // play method
     public void play() {
         hunger -= 30;
         hydration -= 30;
@@ -67,6 +75,7 @@ public class mainActions {
         setStats();
     }
     
+    // sleep method
     public void sleep() {
         energy += 50;
         hunger -= 20;
@@ -74,7 +83,7 @@ public class mainActions {
         happiness -= 20;
         setStats();
     }
-    
+    // Quit and Save the game method
     public void quitAndSave() {
         db.saveGame(player.getName(), pet.getName(), pet.getAnimal(), stats.getHungerV(), stats.getHydrationV(), stats.getHappinessV(), stats.getEnergyV());
     }

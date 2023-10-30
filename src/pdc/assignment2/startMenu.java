@@ -4,17 +4,11 @@
  */
 package pdc.assignment2;
 
-import java.awt.Component;
 import java.awt.Font;
-import java.awt.Graphics;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
-import java.awt.Image;
 import java.awt.Insets;
 import java.awt.event.ActionListener;
-import javax.swing.Box;
-import javax.swing.BoxLayout;
-import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -26,6 +20,7 @@ import javax.swing.JPanel;
  */
 public class startMenu {
     
+    // variables
     private int Width = 500;
     private int Height = 500;
     
@@ -37,6 +32,7 @@ public class startMenu {
     private JButton savedGame = new JButton("Load Saved Game");
     private JButton quit = new JButton("Quit");
     
+    // Constructor
     public startMenu() {
         startMenuFrame = new JFrame("Pet Game");
         startMenuFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -44,6 +40,7 @@ public class startMenu {
         startMenuFrame.setLocationRelativeTo(null);
     }
     
+    // Add components and configure the layout for the start menu
     public void menu() {
         
         startMenuPanel = new JPanel();
@@ -68,16 +65,19 @@ public class startMenu {
         startMenuPanel.add(quit, gbc);
     }
     
+    // Display the start menu
     public void display() {
         menu();
         startMenuFrame.add(startMenuPanel);
         startMenuFrame.setVisible(true);
     }
     
+    // Close and dispose of the start menu
     public void dispose() {
         startMenuFrame.dispose();
     }
     
+    // Set ActionListener for the buttons
     public void newGameAction(ActionListener action) {
         newGame.addActionListener(action);
     }

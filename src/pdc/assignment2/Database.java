@@ -14,19 +14,24 @@ import java.sql.ResultSet;
  *
  * @author jamesduong
  */
-public class Database {
+public final class Database {
 
+    // Database connection properties
     private static final String USER_NAME = "petgame";
     private static final String PASSWORD = "petgame123";
     private static final String URL = "jdbc:derby://localhost:1527/PetGameDB;create=true";
+    
+    // Database connection and statement objects
     private Connection conn;
     private Statement statement;
 
+    // Constructor 
     public Database() {
-        establishConnection();
-        initializeStatement();
+        establishConnection(); // Establish a database connection
+        initializeStatement(); // Initialize the database statement
     }
 
+    // Method initialize the database statement
     public void initializeStatement() {
         try {
             if (conn != null) {
@@ -40,10 +45,12 @@ public class Database {
         }
     }
 
+    // Get the database connection
     public Connection getConnection() {
         return this.conn;
     }
 
+    // Create the "SAVEDGAMES" table if it doesn't exist
     public void createPetGameTable() {
         try {
             this.statement = conn.createStatement();
@@ -62,6 +69,7 @@ public class Database {
         }
     }
 
+    // Establish a database connection
     public void establishConnection() {
         if (conn == null) {
             try {
@@ -73,6 +81,7 @@ public class Database {
         }
     }
 
+    // Close the database connection
     public void closeConnection() {
         if (conn != null) {
             try {
@@ -83,6 +92,7 @@ public class Database {
         }
     }
 
+    // Insert a new player into the database
     public void newPlayer(String pname, String name, String animal) {
         try {
             this.statement.executeUpdate("INSERT INTO SAVEDGAMES (PLAYER_NAME, PET_NAME, PET_ANIMAL) VALUES ('" + pname + "', '" + name + "', '" + animal + "')");
@@ -91,24 +101,10 @@ public class Database {
         }
     }
 
+    // Check if a player with the given name exists in the database
     public boolean findPlayer(String name) {
         boolean found = false;
-      
-//        try {
-//            if (statement != null) {
-//                ResultSet rs = statement.executeQuery("SELECT PLAYER_NAME FROM SAVEDGAMES WHERE PLAYER_NAME = '" + name + "'");
-//                if (rs.next()) {
-//                    found = true;
-//                } else {
-//                    System.out.println("Cannot find Player");
-//                }
-//            } else {
-//                System.err.println("Statement is null. Cannot execute query.");
-//            }
-//        } catch (SQLException ex) {
-//            System.err.println("SQLException6: " + ex.getMessage());
-//        }
-//        return found;     
+        
         try{
             ResultSet rs = this.statement.executeQuery("SELECT PLAYER_NAME FROM SAVEDGAMES WHERE PLAYER_NAME = '" + name + "'");
             if (rs.next()) {
@@ -122,6 +118,7 @@ public class Database {
         return found;
     }
 
+    // Check if a pet with the given name exists in the database
     public boolean findPet(String name) {
         boolean found = false;
 
@@ -138,6 +135,7 @@ public class Database {
         return found;
     }
 
+    // Save game data for a player and their pet
     public void saveGame(String name, String petname, String animal, int hunger, int hydration, int happiness, int energy) {
         try {
             this.statement.executeUpdate("UPDATE SAVEDGAMES SET HUNGER = " + hunger + ", HYDRATION = " + hydration
@@ -148,6 +146,7 @@ public class Database {
         }
     }
 
+    // Retrieve the hunger level for a player and their pet
     public int getHunger(String name, String petname) {
         int hunger = 0;
         try {
@@ -161,6 +160,7 @@ public class Database {
         return hunger;
     }
 
+    // Retrieve the hydration level for a player and their pet
     public int getHydration(String name, String petname) {
         int hydration = 0;
         try {
@@ -174,6 +174,7 @@ public class Database {
         return hydration;
     }
 
+    // Retrieve the happiness level for a player and their pet
     public int getHappiness(String name, String petname) {
         int happiness = 0;
         try {
@@ -187,6 +188,7 @@ public class Database {
         return happiness;
     }
 
+    // Retrieve the energy level for a player and their pet
     public int getEnergy(String name, String petname) {
         int energy = 0;
         try {

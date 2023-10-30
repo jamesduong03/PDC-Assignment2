@@ -13,10 +13,12 @@ import java.awt.event.ActionListener;
  */
 public class gameController implements ActionListener{
     
+    // Instance variables
     private mainMenu mainmenu;
     private mainActions actions;
     private GameFrame gameFrame = new GameFrame();
     
+    // Constructor
     public gameController(mainMenu mainmenu, mainActions actions, GameFrame gameFrame) {
         this.mainmenu = mainmenu;
         this.actions = actions;
@@ -29,6 +31,7 @@ public class gameController implements ActionListener{
         mainmenu.quitAction(this);
     }
 
+    // Method to get user input from main game frame
     @Override
     public void actionPerformed(ActionEvent e) {
         String input = e.getActionCommand();

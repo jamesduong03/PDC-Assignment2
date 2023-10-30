@@ -10,26 +10,31 @@ package pdc.assignment2;
  */
 public class GameFrame {
     
+    // Instance variables
     private startMenu menu = new startMenu();
     private newPetMenu petMenu = new newPetMenu();
     private newPetActions petAction = new newPetActions(petMenu);
     private mainMenu mainMenu = new mainMenu();
     
+    // Start the start game frame
     public void startFrame() {
         Controller controller = new Controller(menu, this);
         menu.display();
     }
     
+    // Start the new pet creation frame
     public void startNewPetFrame() {
         Controller controller = new Controller(petMenu, petAction, this);
         petMenu.display();
     }
     
+    // Start the frame for getting saved game
     public void startSaveFrame() {
         Controller controller = new Controller(petMenu, petAction, this);
         petMenu.displaySave();
     }
     
+    // Start the main menu frame
     public void startMainMenu() {
         Player player = new Player(petMenu.getName());
         Pet pet = new Pet(petMenu.getPetName(), petMenu.getPetSelected());
@@ -39,10 +44,12 @@ public class GameFrame {
         mainMenu.display();
     }
     
+    // Getter for the newPetMenu
     public newPetMenu getNewPetMenu() {
         return this.petMenu;
     }
     
+    // Getter for the newPetActions
     public newPetActions getPetActions() {
         return this.petAction;
     }
