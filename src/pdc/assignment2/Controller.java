@@ -6,6 +6,7 @@ package pdc.assignment2;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -35,6 +36,7 @@ public class Controller implements ActionListener{
         this.gameFrame = gameFrame;
 
         petMenu.enterAction(this);
+        petMenu.loadAction(this);
     }
     
     @Override
@@ -49,14 +51,29 @@ public class Controller implements ActionListener{
                 
             case "Load Saved Game":
                 startmenu.dispose();
+                gameFrame.startSaveFrame();
                 break;
                 
             case "Quit":
                 System.exit(0);
                 break;
                 
-            case "Enter":
+            case "Enter":             
                 if(!petAction.checkPlayerName() && !petAction.checkPetName()) {
+                    if (petAction.checkPlayerDB()) {
+                        JOptionPane.showMessageDialog(null, "Name already exist. Please choose another name.");
+                    } else {
+                        petAction.newPlayer();
+                        petMenu.dispose();
+                        gameFrame.startMainMenu();
+                    }
+                }
+                break;
+                
+            case "Load Game":
+                if (petAction.checkPlayerDB() == false) {
+                        JOptionPane.showMessageDialog(null, "Name does not exist. Please try another name.");
+                } else {
                     petMenu.dispose();
                     gameFrame.startMainMenu();
                 }

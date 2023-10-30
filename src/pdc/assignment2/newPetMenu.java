@@ -38,6 +38,7 @@ public class newPetMenu {
     private JTextField petNameInput = new JTextField(25);
     
     private JButton enter = new JButton("Enter");
+    private JButton load = new JButton("Load Game");
     
     public newPetMenu() {
         
@@ -61,6 +62,12 @@ public class newPetMenu {
         
         newPetPanel.add(petName);
         newPetPanel.add(enter);  
+    }
+    
+    public void saveMenu() {
+        newPetPanel.add(nametext);
+        newPetPanel.add(nameInput);
+        newPetPanel.add(load); 
     }
     
     public void menu() {
@@ -104,12 +111,22 @@ public class newPetMenu {
         newPetFrame.setVisible(true);
     }
     
+    public void displaySave() {
+        saveMenu();
+        newPetFrame.add(newPetPanel);
+        newPetFrame.setVisible(true);
+    }
+    
     public void dispose() {
         newPetFrame.dispose();
     }
     
     public void enterAction(ActionListener action) {
         enter.addActionListener(action);
+    }
+    
+    public void loadAction(ActionListener action) {
+        load.addActionListener(action);
     }
     
     public String getPetSelected() {

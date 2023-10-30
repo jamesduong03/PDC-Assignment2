@@ -13,6 +13,7 @@ public class newPetActions {
     private newPetMenu menu;
     private Player player;
     private Pet pet;
+    private Database db = new Database();
     
     public newPetActions(newPetMenu menu) {
         this.menu = menu;
@@ -28,9 +29,11 @@ public class newPetActions {
     
     public void newPlayer() {
         player = new Player(menu.getName());
+        pet = new Pet(menu.getName(), menu.getPetSelected());
+        db.newPlayer(menu.getName(), menu.getPetName(), pet.getAnimal());
     }
     
-    public void newPet() {
-        pet = new Pet(menu.getName(), menu.getPetSelected());
+    public boolean checkPlayerDB() {
+        return db.findPlayer(menu.getName());
     }
 }

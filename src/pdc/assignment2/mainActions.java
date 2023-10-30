@@ -13,6 +13,7 @@ public class mainActions {
     private Stats stats;
     private Player player;
     private Pet pet;
+    private Database db = new Database();
     
     private int hunger;
     private int hydration;
@@ -25,6 +26,16 @@ public class mainActions {
         this.pet = pet;
     }
     
+    public void getSavedGame() {
+        if(db.findPlayer(this.player.getName())) {
+            hunger = db.getHunger(player.getName(), pet.getName());
+            hydration = db.getHydration(player.getName(), pet.getName());
+            happiness = db.getHappiness(player.getName(), pet.getName());
+            energy = db.getEnergy(player.getName(), pet.getName());
+        }
+        setStats();
+    }
+    
     public void setStats() {  
         stats.getHunger().setValue(hunger);
         stats.getHydration().setValue(hydration);
@@ -33,34 +44,38 @@ public class mainActions {
     }
     
     public void eat() {
-        hunger += 2;
+        hunger += 20;
         hydration += 0;
         this.energy += 0;
-        happiness -= 2;
+        happiness -= 20;
         setStats();
     }
     
     public void drink() {
-        hydration += 4;
+        hydration += 40;
         hunger += 0;
         energy += 0;
-        happiness -= 2;
+        happiness -= 20;
         setStats();
     }
     
     public void play() {
-        hunger -= 3;
-        hydration -= 3;
-        energy -= 4;
-        happiness += 4;
+        hunger -= 30;
+        hydration -= 30;
+        energy -= 40;
+        happiness += 40;
         setStats();
     }
     
     public void sleep() {
-        energy += 5;
-        hunger -= 2;
-        hydration -= 2;
-        happiness -= 2;
+        energy += 50;
+        hunger -= 20;
+        hydration -= 20;
+        happiness -= 20;
         setStats();
+    }
+    
+    public void quitAndSave() {
+        db.saveGame(player.getName(), pet.getName(), pet.getAnimal(), stats.getHungerV(), stats.getHydrationV(), stats.getHappinessV(), stats.getEnergyV());
     }
 }

@@ -50,7 +50,8 @@ public class gameController implements ActionListener{
                 actions.sleep();
                 break;
             
-            case "Quit":
+            case "Quit and Save":
+                actions.quitAndSave();
                 System.exit(0);
                 break;
         }
